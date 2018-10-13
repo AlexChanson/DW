@@ -2,8 +2,6 @@
 
 # List of directories to include in the processing (by default it's empty, so all markdown files are parsed)
 # Paths are relative to the optional source path given when generating the website, repository root by default
-include:
-    - docs
 
 # List of directories to exclude from the processing (default contains "vendor" and "website")
 # Paths are relative to the optional include paths given when generating the website, repository root by default
@@ -15,13 +13,6 @@ exclude:
     - %gitignore%
 
 
-
-# Set the target branch in which to deploy the generated website
-branch: gh-pages
-
 # Any variable you put in this file is also available in the Twig layouts:
 title: Data WareHousing Project
 
-# Base URL of the published website (no "/" at the end!)
-# You are advised to set and use this variable to write your links in the HTML layouts
-baseUrl: https://alexchanson.github.io/DW/
