@@ -15,7 +15,7 @@ scripts:
         - cp -r figures/ .couscous/generated/
 
 # Any variable you put in this file is also available in the Twig layouts:
-title: Data WareHousing Project
+title: BI Project - Group 3
 subtTitle: Xinze Tong - Chanson Alexandre - Ringuet Nicolas
 
 baseUrl: https://alexchanson.github.io/DW
