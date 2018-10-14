@@ -13,15 +13,15 @@ Those needs will guide our DW design process, we will use the needs driven appro
 | Q6           | What is the most popular genre in the last 5 years ?                                             |
 | Q7           | What is the average number of streams of a track in the top 50 ?                                            |
 | Q8           | What the most popular rap artist in Italy in 2018 ?                                              |
-| Q9           | How many google searches for pop artists in 2017 in Germany ?                                    |
+| Q9           | How many google searches for "Highway To Hell" in 2017 in Germany ?                                    |
 | Q10          | How many google searches for the last Taylor Swift album in 2015 in Asia ?                       |
 
 #Workload Table
 | Dimensions   | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 |
 |--------------|----|----|----|----|----|----|----|----|----|-----|
-| track        | X  | X  | X  | X  | X  |    | X  | X  |    | X   |
+| track        | X  | X  | X  | X  | X  |    | X  | X  | X  | X   |
 | week         | X  | X  | X  | X  |    | X  |    |    | X  | X   |
-| genre        |    | X  |    |    |    | X  |    | X  | X  |     |
+| genre        |    | X  |    |    |    | X  |    | X  |    |     |
 | country      | X  | X  |    | X  |    |    |    | X  | X  | X   |
 | Measures     |    |    |    |    |    |    |    |    |    |     |
 | rank         | X  | X  | X  | X  | X  | X  |    | X  |    | X   |
@@ -66,7 +66,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 ```
 #### Q9
 ```
-    
+    GOOGLE_SEARCHES[track='Highway To Hell', country='Germany', year=2017].sum(hits)
 ```
 #### Q10
 ```
