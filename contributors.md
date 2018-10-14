@@ -2,7 +2,7 @@
 ### Main
 Xinze Tong
 
-Alexandre Chanson
+[Alexandre Chanson](https://alexscode.com)
 
 Nicolas Ringuet
 ### Support
