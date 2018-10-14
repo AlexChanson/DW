@@ -5,13 +5,9 @@ github:
     user: alexchanson
     repo: DW
 
-# List of directories to include in the processing (by default it's empty, so all markdown files are parsed)
-# Paths are relative to the optional source path given when generating the website, repository root by default
-
-# Paths are relative to the optional include paths given when generating the website, repository root by default
-exclude:
-    # This special entry will ask Couscous to read the exluded directories from your ".gitignore"  file
-    - %gitignore%
+include:
+    - .
+    - figures
 
 
 # Any variable you put in this file is also available in the Twig layouts:
