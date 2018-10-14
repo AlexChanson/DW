@@ -143,7 +143,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 </tr>
 <tr>
 <td>Q7</td>
-<td>What is the average length of a track in the top 50 ?</td>
+<td>What is the average number of streams of a track in the top 50 ?</td>
 </tr>
 <tr>
 <td>Q8</td>
@@ -263,7 +263,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 <td></td>
 <td>X</td>
 <td></td>
-<td></td>
+<td>X</td>
 <td>X</td>
 <td></td>
 <td></td>
@@ -302,7 +302,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 <td></td>
 <td></td>
 <td></td>
-<td>X</td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -336,13 +336,13 @@ Those needs will guide our DW design process, we will use the needs driven appro
 <h4 id="q6">Q6</h4>
 <pre><code>    This query has vocation to be answer by our coumpound popularity metric.</code></pre>
 <h4 id="q7">Q7</h4>
-<pre><code></code></pre>
+<pre><code>    CHART_ENTRY[rank&lt;51].avg(streams)</code></pre>
 <h4 id="q8">Q8</h4>
 <pre><code>    This query has vocation to be answer by our coumpound popularity metric.</code></pre>
 <h4 id="q9">Q9</h4>
 <pre><code></code></pre>
 <h4 id="q10">Q10</h4>
-<pre><code>    GOOGLE_SERACHES[keyword='Taylor Swift',region='Asia', year=2015].sum(hits)</code></pre>
+<pre><code>    GOOGLE_SERACHES[album='Reputation',region='Asia', year=2015].sum(hits)</code></pre>
                     </div>
     </div>
 
