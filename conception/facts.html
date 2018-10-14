@@ -110,6 +110,41 @@
 <h3 id="chart-entry">Chart Entry</h3>
 <p><img src="../figures/DF1.svg" alt="Chart Entry fact" /></p>
 <p>This schema represent the popularity of a song on spotify with the rank by the number of streams.</p>
+<h3 id="the-aggregation-matrix">The aggregation matrix:</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>track</th>
+<th>country</th>
+<th>week</th>
+<th>genre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rank</td>
+<td>NO</td>
+<td>avg</td>
+<td>avg</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>streams</td>
+<td>sum</td>
+<td>sum</td>
+<td>sum</td>
+<td>sum</td>
+</tr>
+<tr>
+<td>hits</td>
+<td>sum</td>
+<td>sum</td>
+<td>sum</td>
+<td>sum</td>
+</tr>
+</tbody>
+</table>
 <h3 id="song-features">Song Features</h3>
 <p><img src="../figures/DF2.svg" alt="Song Features fact" /></p>
 <p>This fact represent song informations like the song length or the  loudness by genre, years and the song title.</p>
