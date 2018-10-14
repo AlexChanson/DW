@@ -15,3 +15,45 @@ title: Data WareHousing Project
 subtTitle: Xinze Tong - Chanson Alexandre - Ringuet Nicolas
 
 baseUrl: https://alexchanson.github.io/DW
+
+
+
+# left menu bar
+menu:
+    sections:
+        general:
+            name: General
+            items:
+                home:
+                    text: Project Description
+                    relativeUrl: index.html
+                data_sources:
+                    text: Data sources
+                    relativeUrl: data_sources.html
+                installation:
+                    text: Install
+                    relativeUrl: installation.html      
+        conception:
+            name: Conception
+            items:
+                workload:
+                    text: Workload
+                    relativeUrl: conception/workload.html
+                database_schema:
+                    text: Database Schema
+                    relativeUrl: conception/database_schema.html
+                data_dictionary:
+                    text: Data Dictionary
+                    relativeUrl: conception/data_dictionary.html
+                facts:
+                    text: Facts
+                    relativeUrl: conception/facts.html
+                functional_dependencies:
+                    text: Functional Dependencies
+                    relativeUrl: conception/functional_dependencies.html
+        about:
+            name: About
+            items:
+                about:
+                    text: Contributors
+                    relativeUrl: contributors.html
