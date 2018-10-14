@@ -30,3 +30,45 @@ Those needs will guide our DW design process, we will use the needs driven appro
 | danceability |    |    |    |    |    |    |    |    |    |     |
 | length       |    |    |    |    |    |    | X  |    |    |     |
 | hits         |    |    | X  |    |    |    |    |    | X  | X   |
+
+#Formal Workload
+#### Q1
+```
+    CHART_ENTRY[track, month, rank<51, year='20XX']
+```
+#### Q2
+```
+    CHART_ENTRY[artist, genre='pop', rank<11, country='USA']
+```
+#### Q3
+```
+
+```
+#### Q4
+```
+
+```
+#### Q5
+```
+
+```
+#### Q6
+```
+
+```
+#### Q7
+```
+
+```
+#### Q8
+```
+
+```
+#### Q9
+```
+
+```
+#### Q10
+```
+
+```
