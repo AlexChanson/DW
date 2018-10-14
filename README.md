@@ -1,4 +1,4 @@
-#BDMA BI Poroject
+#BDMA BI Project
 ### Alex - Nicolas - Xinze
 
 # Introduction
@@ -6,4 +6,4 @@ This repository hosts all scripts and code used along our Buisness intelligence 
 This documentation generated with couscous will act as an interactive report for our project, it will contain all dleivarable content along with usefull information.
 
 # Objectives
-We shall study the factor comming into play in the popularity of song.
+We shall study the factor comming into play in the popularity of song. To that exetent we need to create a datamart to study general statistics about popular songs, once we have such mart we will be able to add further data (ie secific features we wich to study) that will help us create a objective popularity metric that coud be used to predict if a song can become popular.
