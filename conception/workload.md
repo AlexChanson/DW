@@ -15,3 +15,18 @@ Those needs will guide our DW design process, we will use the needs driven appro
 | Q8           | What the most popular rap artist in Italy in 2018                                               |
 | Q9           | how many google searches for pop artists in 2017 in Germany                                     |
 | Q10          | how many google searches for the last Taylor Swift album in 2015 in Asia                        |
+
+#Workload Table
+| Dimensions   | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 |
+|--------------|----|----|----|----|----|----|----|----|----|-----|
+| track        | X  | X  | X  | X  | X  |    | X  | X  |    | X   |
+| week         | X  | X  | X  | X  |    | X  |    |    | X  | X   |
+| genre        |    | X  |    |    |    | X  |    | X  | X  |     |
+| country      | X  | X  |    | X  |    |    |    | X  | X  | X   |
+| Measures     |    |    |    |    |    |    |    |    |    |     |
+| rank         | X  | X  | X  | X  | X  | X  |    | X  |    | X   |
+| streams      |    |    |    |    | X  |    |    | X  |    |     |
+| loundness    |    |    |    |    |    |    |    |    |    |     |
+| danceability |    |    |    |    |    |    |    |    |    |     |
+| length       |    |    |    |    |    |    | X  |    |    |     |
+| hits         |    |    | X  |    |    |    |    |    | X  | X   |
