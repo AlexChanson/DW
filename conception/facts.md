@@ -14,7 +14,6 @@ This schema represent the popularity of a song on spotify with the rank by the n
 |---------|-------|---------|------|-------|
 | rank    | NO    | avg     | avg  | NO    |
 | streams | sum   | sum     | sum  | sum   |
-| hits    | sum   | sum     | sum  | sum   |
 
 ###Song Features 
 
