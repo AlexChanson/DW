@@ -6,4 +6,4 @@ Alexandre Chanson
 
 Nicolas Ringuet
 ### Support
-Ben Crulis (pour le suport technique couscous)
+[Ben Crulis](https://github.com/BenCrulis) (Couscous support)
