@@ -8,6 +8,14 @@ We describe our database with thoses facts schemas :
 
 This schema represent the popularity of a song on spotify with the rank by the number of streams.
 
+###The aggregation matrix:
+
+|         | track | country | week | genre |
+|---------|-------|---------|------|-------|
+| rank    | NO    | avg     | avg  | NO    |
+| streams | sum   | sum     | sum  | sum   |
+| hits    | sum   | sum     | sum  | sum   |
+
 ###Song Features 
 
 ![Song Features fact](../figures/DF2.svg)
