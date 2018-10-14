@@ -3,18 +3,18 @@ Our warehouse is designed with the needs of artists and music labels/producers i
 Those needs will guide our DW design process, we will use the needs driven approach.
 
 #Typical Queries
-| Query Number | Natural language                                                                                |
-|--------------|-------------------------------------------------------------------------------------------------|
-| Q1           | What songs were in the top 50 for more than a month in 20XX in France                           |
-| Q2           | Which pop artists got more than 5 songs in the top 10 this year in the USA                      |
-| Q3           | How many times the number one artist of the top 50 of the year 2017 has been searched on google |
-| Q4           | How much song Kanye had in the chart in france this month ? Comparing to in China ?             |
-| Q5           | Which artist of the top 50 of July has the most of streams                                      |
-| Q6           | What the most popular genre in the last 5 years                                                 |
-| Q7           | What is the average length of a track in the top 50                                             |
-| Q8           | What the most popular rap artist in Italy in 2018                                               |
-| Q9           | how many google searches for pop artists in 2017 in Germany                                     |
-| Q10          | how many google searches for the last Taylor Swift album in 2015 in Asia                        |
+| Query Number | Natural language                                                                                 |
+|--------------|--------------------------------------------------------------------------------------------------|
+| Q1           | What songs were in the top 50 for more than a month in 20XX in France ?                          |
+| Q2           | Which pop artists got more than 5 songs in the top 10 this year in the USA ?                     |
+| Q3           | How many times the number one artist of the top 50 of the year 2017 has been searched on google ?|
+| Q4           | How much song Kanye had in the chart in france this month ? Comparing to in China ?              |
+| Q5           | Which artist of the top 50 of July has the most of streams ?                                     |
+| Q6           | What is the most popular genre in the last 5 years ?                                             |
+| Q7           | What is the average length of a track in the top 50 ?                                            |
+| Q8           | What the most popular rap artist in Italy in 2018 ?                                              |
+| Q9           | How many google searches for pop artists in 2017 in Germany ?                                    |
+| Q10          | How many google searches for the last Taylor Swift album in 2015 in Asia ?                       |
 
 #Workload Table
 | Dimensions   | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 |
@@ -42,19 +42,19 @@ Those needs will guide our DW design process, we will use the needs driven appro
 ```
 #### Q3
 ```
-
+    GOOGLE_SEARCHES[keyword=CHART_ENTRY[artist, rank=23, year=2017]].sum(hits)
 ```
 #### Q4
 ```
-
+    CHART_ENTRY[artist='kanye', country='france'].count
 ```
 #### Q5
 ```
-
+    CHART_ENTRY[artist, month='July'].max(streams)
 ```
 #### Q6
 ```
-
+    This query has vocation to be answer by our coumpound popularity metric.
 ```
 #### Q7
 ```
