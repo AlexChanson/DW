@@ -110,7 +110,7 @@
 <h3 id="chart-entry">Chart Entry</h3>
 <p><img src="../figures/DF1.svg" alt="Chart Entry fact" /></p>
 <p>This schema represent the popularity of a song on spotify with the rank by the number of streams.</p>
-<h3 id="the-aggregation-matrix">The aggregation matrix:</h3>
+<h4 id="aggregation-matrix">Aggregation matrix:</h4>
 <table>
 <thead>
 <tr>
@@ -148,9 +148,59 @@
 <h3 id="song-features">Song Features</h3>
 <p><img src="../figures/DF2.svg" alt="Song Features fact" /></p>
 <p>This fact represent song informations like the song length or the  loudness by genre, years and the song title.</p>
+<h4 id="aggregation-matrix-1">Aggregation matrix:</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>genre</th>
+<th>track</th>
+<th>week</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>loundness</td>
+<td>avg</td>
+<td>avg</td>
+<td>avg</td>
+</tr>
+<tr>
+<td>danceability</td>
+<td>avg</td>
+<td>avg</td>
+<td>avg</td>
+</tr>
+<tr>
+<td>length</td>
+<td>avg</td>
+<td>avg</td>
+<td>avg</td>
+</tr>
+</tbody>
+</table>
 <h3 id="google-searches">Google Searches</h3>
 <p><img src="../figures/DF3.svg" alt="Google Searches fact" /></p>
-<p>This fact represent the number searches on Google with a keyword like the artist name or an album.</p>
+<p>This fact represent the number searches on Google for a song.</p>
+<h4 id="aggregation-matrix-2">Aggregation matrix:</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>track</th>
+<th>country</th>
+<th>week</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hits</td>
+<td>sum</td>
+<td>sum</td>
+<td>sum</td>
+</tr>
+</tbody>
+</table>
                     </div>
     </div>
 
