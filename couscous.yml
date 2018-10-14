@@ -8,7 +8,11 @@ github:
 include:
     - .
     - figures
+    - conception
 
+scripts:
+    after:
+        - cp -r figures/ ./couscous/generated/
 
 # Any variable you put in this file is also available in the Twig layouts:
 title: Data WareHousing Project
