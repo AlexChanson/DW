@@ -11,9 +11,9 @@ Those needs will guide our DW design process, we will use the needs driven appro
 | Q4           | How much song Kanye had in the chart in france this month ? Comparing to in China ?              |
 | Q5           | Which artist of the top 50 of July has the most of streams ?                                     |
 | Q6           | What is the most popular genre in the last 5 years ?                                             |
-| Q7           | What is the average number of streams of a track in the top 50 ?                                            |
+| Q7           | What is the average number of streams of a track in the top 50 ?                                 |
 | Q8           | What the most popular rap artist in Italy in 2018 ?                                              |
-| Q9           | How many google searches for "Highway To Hell" in 2017 in Germany ?                                    |
+| Q9           | How many google searches for "Highway To Hell" in 2017 in Germany ?                              |
 | Q10          | How many google searches for the last Taylor Swift album in 2015 in Asia ?                       |
 
 #Workload Table
@@ -34,27 +34,30 @@ Those needs will guide our DW design process, we will use the needs driven appro
 #Formal Workload
 #### Q1
 ```
-    CHART_ENTRY[track, month, rank<51, year='20XX']
+    CHART_ENTRY[track, month, decade='2000'].max(rank)
 ```
 #### Q2
 ```
-    CHART_ENTRY[artist, genre='pop', rank<11, country='USA']
+    CHART_ENTRY[artist, genre='pop', country='USA', year=2018].count(nbEntry where rank < 6)
 ```
 #### Q3
 ```
-    GOOGLE_SEARCHES[keyword=CHART_ENTRY[artist, rank=23, year=2017]].sum(hits)
+    GOOGLE_SEARCHES[artist, rank=1, year=2017]].sum(hits)
 ```
 #### Q4
 ```
-    CHART_ENTRY[artist='kanye', country='france'].count
+    CHART_ENTRY[artist='kanye', country='france'].count(nbEntry)
+    CHART_ENTRY[artist='kanye', country='china'].count(nbEntry)
 ```
 #### Q5
 ```
-    CHART_ENTRY[artist, month='July'].max(streams)
+    CHART_ENTRY[artist, month='July', rank<51].max(streams)
 ```
 #### Q6
 ```
     This query has vocation to be answer by our coumpound popularity metric.
+    In terms of searches: GOOGLE_SEARCHES[genre, year>2012].max(hits)
+    In terms of streams: CHART_ENTRY
 ```
 #### Q7
 ```
