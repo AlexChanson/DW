@@ -12,7 +12,7 @@ This schema represent the popularity of a song on spotify with the rank by the n
 
 |         | track | country | week | genre |
 |---------|-------|---------|------|-------|
-| rank    | NO    | avg     | avg  | NO    |
+| rank    | max   | avg     | avg  | max   |
 | streams | sum   | sum     | sum  | sum   |
 
 ###Song Features 
@@ -33,7 +33,7 @@ This fact represent song informations like the song length or the  loudness by g
 
 ![Google Searches fact](../figures/DF3.svg)
 
- This fact represent the number searches on Google for a song.
+ This fact represent the number searches on Google for a song. We chose to keep this fact separate as it is from a different source and it migh be considered without the Chart entries when making queries.
 
 ####Aggregation matrix:
 
