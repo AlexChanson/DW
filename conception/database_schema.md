@@ -1,7 +1,7 @@
 # Entity-Relationship diagrams
 
 
-We describe our database with thoses entity-relationship schemas:
+Since we plan on using Mondarian with a classical relational database as the backend of our project we have converted our multidimentional schema into a star of tables.
 
 ###Chart Entry
 

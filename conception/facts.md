@@ -10,10 +10,11 @@ This schema represent the popularity of a song on spotify with the rank by the n
 
 ####Aggregation matrix:
 
-|         | track | country | week | genre |
-|---------|-------|---------|------|-------|
-| rank    | max   | avg     | avg  | max   |
-| streams | sum   | sum     | sum  | sum   |
+|         | track | country | week  | genre |
+|---------|-------|---------|-------|-------|
+| rank    | max   | avg     | avg   | max   |
+| streams | sum   | sum     | sum   | sum   |
+| nbEntry | count | count   | count | count |
 
 ###Song Features 
 
