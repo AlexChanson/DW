@@ -105,14 +105,25 @@
             </a>
         </header>
         <div class="container">
-                            <h1 id="entity-relationship-diagrams">Entity-Relationship diagrams</h1>
+                            <h1 id="table-diagrams">Table diagrams</h1>
 <p>Since we plan on using Mondarian with a classical relational database as the backend of our project we have converted our multidimentional schema into a star of tables.</p>
 <h3 id="chart-entry">Chart Entry</h3>
 <p><img src="../figures/ER1.svg" alt="Chart Entry" /></p>
+<h5 id="foreign-keys">Foreign Keys</h5>
+<p>track_id in Chart_Entry refers to track_id in Track
+week_id in Chart_Entry refers to week_id in Weeks
+country_id in Chart_Entry refers to country_id in Country
+country_id in Artist refers to country_id in Country</p>
 <h3 id="song-features">Song Features</h3>
 <p><img src="../figures/ER2.svg" alt="Song Features" /></p>
+<h5 id="foreign-keys-1">Foreign Keys</h5>
+<p>track_id in Song_features refers to track_id in Track</p>
 <h3 id="google-searches">Google Searches</h3>
 <p><img src="../figures/ER3.svg" alt="Google Searches" /></p>
+<h5 id="foreign-keys-2">Foreign Keys</h5>
+<p>track_id in Google_searches refers to track_id in Track
+week_id in Google_searches refers to week_id in Weeks
+country_id in Google_searches refers to country_id in Country</p>
                     </div>
     </div>
 
