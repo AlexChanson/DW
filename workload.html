@@ -336,12 +336,12 @@ Those needs will guide our DW design process, we will use the needs driven appro
 <pre><code>    CHART_ENTRY[artist, month='July', rank&lt;51].max(streams)</code></pre>
 <h4 id="q6">Q6</h4>
 <pre><code>    This query has vocation to be answer by our coumpound popularity metric.
-    In terms of searches: GOOGLE_SEARCHES[genre, year&gt;2012].max(hits)
-    In terms of streams: CHART_ENTRY</code></pre>
+    In terms of searches: GOOGLE_SEARCHES[genre, year&gt;2012].max(hits)</code></pre>
 <h4 id="q7">Q7</h4>
 <pre><code>    CHART_ENTRY[rank&lt;51].avg(streams)</code></pre>
 <h4 id="q8">Q8</h4>
-<pre><code>    This query has vocation to be answer by our coumpound popularity metric.</code></pre>
+<pre><code>    This query has vocation to be answer by our coumpound popularity metric.
+    In terms of searches: GOOGLE_SEARCHES[genre='rap', year=2018, country='Italy'].max(hits)</code></pre>
 <h4 id="q9">Q9</h4>
 <pre><code>    GOOGLE_SEARCHES[track='Highway To Hell', country='Germany', year=2017].sum(hits)</code></pre>
 <h4 id="q10">Q10</h4>
