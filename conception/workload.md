@@ -57,7 +57,6 @@ Those needs will guide our DW design process, we will use the needs driven appro
 ```
     This query has vocation to be answer by our coumpound popularity metric.
     In terms of searches: GOOGLE_SEARCHES[genre, year>2012].max(hits)
-    In terms of streams: CHART_ENTRY
 ```
 #### Q7
 ```
@@ -66,6 +65,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 #### Q8
 ```
     This query has vocation to be answer by our coumpound popularity metric.
+    In terms of searches: GOOGLE_SEARCHES[genre='rap', year=2018, country='Italy'].max(hits)
 ```
 #### Q9
 ```

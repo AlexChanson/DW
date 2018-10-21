@@ -16,6 +16,8 @@ This schema represent the popularity of a song on spotify with the rank by the n
 | streams | sum   | sum     | sum   | sum   |
 | nbEntry | count | count   | count | count |
 
+**Warning:** We allow n-n relations between tracks and artists this can lead to inconsistencies in some sum agregates.
+
 ###Song Features 
 
 ![Song Features fact](../figures/DF2.svg)
@@ -24,11 +26,11 @@ This fact represent song informations like the song length or the  loudness by g
 
 ####Aggregation matrix:
 
-|              | genre | track | week |
-|--------------|-------|-------|------|
-| loundness    | avg   | avg   | avg  |
-| danceability | avg   | avg   | avg  |
-| length       | avg   | avg   | avg  |
+|              | track | release_year |
+|--------------|-------|--------------|
+| loundness    | avg   | avg          |
+| danceability | avg   | avg          |
+| length       | avg   | avg          |
 
 ###Google Searches
 

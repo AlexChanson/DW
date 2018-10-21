@@ -21,4 +21,6 @@
 | entryNb      | used to count chart entries, always 1 for primary events                                              | yes | no  | no  |
 | popularity   | Measures the popularity of a song, will be computed and added in second semester                      | yes | no  | no  |
 | country      | The artist's country of residence                                                                     | no  | yes | no  |
-| release_year | The year the album was released                                                                       | no  | yes | no  |
+| release_year | The year the album/song was released                                                                  | no  | yes | no  |
+| label        | The label that produced the album                                                                     | no  | yes | no  |
+| followers    | The follower count by slices (0 to 10K, 10K to 100K, 100K to 1M, 1M to 2M, 2M to 3M, 3M to 5M, > 5M)  | no  | yes | no  |
