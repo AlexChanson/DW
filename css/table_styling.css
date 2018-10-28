@@ -3,9 +3,15 @@
 
 
 table {
-    width:100%;
     border-collapse: collapse;
-    border: 0.1rem solid #e1e1e1;
+    /*border: 0.1rem solid #e1e1e1;*/
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+}
+
+tbody {
+    overflow-x: auto;
 }
 
 td,th {
@@ -24,6 +30,15 @@ tr {
 th {
     background: #404d5a;
     color: #f1f1f1;
+
+}
+
+tr th {
+    border-left: 0.1rem solid #e1e1e1;
+}
+
+th+th {
+    border-left: 0.1rem solid #2f3842;
 }
 
 td:first-child,th:first-child {
