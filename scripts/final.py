@@ -148,11 +148,11 @@ with open(infile, encoding='utf8') as f:
                 else:
                     try:
                         result = addattributes(line[len(line) - 3], song, artist, track)
-                    except requests.exceptions.HTTPError as e:
-                        status_code = e.response.status_code
-                        if status_code == 400:
-                            err.write(separateur.join(line) + "\n")
-                            continue
+                    except spotipy.client.SpotifyException as e:
+                        print(dir(e))
+                        err.write(separateur.join(line) + "\n")
+                        continue
+                    except Exception:
                         song.refresh()
                         artist.refresh()
                         track.refresh()
