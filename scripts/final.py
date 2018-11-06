@@ -21,7 +21,7 @@ class CachedRequest:
         #print(self.token)
 
     def request(self, id_: str):
-        print("ID requested",id)
+        print("ID requested",id_)
         if id_ in self.store.keys():
             print("We know it already", self.store[id_])
             return self.store[id_]
@@ -42,15 +42,18 @@ clientSecret = "6858144db1174351af180a0899acc0bd"
 def setup():
     def songrequest(apiObj, id):
         track = apiObj.track(id)
+        return track
     songRequester = CachedRequest(clientId, clientSecret, songrequest)
 
     def artistrequester(apiObj, id):
         artist = apiObj.artist(id)
-    artistRequester = CachedRequest(clientId, clientSecret, songrequest)
+        return artist
+    artistRequester = CachedRequest(clientId, clientSecret, artistrequester)
 
     def featurerequester(apiObj, id):
         track = apiObj.audio_features(id)
-    featureRequester = CachedRequest(clientId, clientSecret, songrequest)
+        return track
+    featureRequester = CachedRequest(clientId, clientSecret, featurerequester)
     return songRequester, artistRequester, featureRequester
 
 def addattributes(input, songRequester, artistRequester, featureRequester):
