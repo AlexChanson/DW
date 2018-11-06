@@ -18,6 +18,7 @@ class CachedRequest:
 
         self.cache_token = self.token.get_access_token()
         self.sp = spotipy.Spotify(self.cache_token)
+        print(self.token)
 
     def request(self, id_: str):
         if id_ in self.store.keys():
@@ -29,6 +30,7 @@ class CachedRequest:
 
     def refresh(self):
         self.token = util.oauth2.SpotifyClientCredentials(self.id, self.secret)
+        self.sp = spotipy.Spotify(self.cache_token)
 
 clientId = "6bbad2bde89e4e3a9f497882353e2307"
 clientSecret = "6858144db1174351af180a0899acc0bd"
