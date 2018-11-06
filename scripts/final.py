@@ -6,12 +6,31 @@ import spotipy.util as util
 import json
 import csv
 
+
+class CachedRequest:
+
+    def __init__(self, clientID, clientSecret, ifAbsent):
+        self.store = {}
+        self.id = clientID
+        self.secret = clientSecret
+        self.func = ifAbsent
+        self.token = util.oauth2.SpotifyClientCredentials(clientId, clientSecret)
+
+        self.cache_token = self.token.get_access_token()
+        self.sp = spotipy.Spotify(self.cache_token)
+
+    def request(self, id_: str):
+        if id_ in self.store.keys():
+            return self.store[id_]
+        else:
+            return self.func(self.sp, id_)
+
+    def refresh(self):
+        self.token = util.oauth2.SpotifyClientCredentials(self.id, self.secret)
+
 clientId = "6bbad2bde89e4e3a9f497882353e2307"
 clientSecret = "6858144db1174351af180a0899acc0bd"
 
-songRequester = None
-artistRequester = None
-featureRequester = None
 
 def setup():
     def songrequest(apiObj, id):
@@ -25,8 +44,9 @@ def setup():
     def featurerequester(apiObj, id):
         track = apiObj.audio_features(id)
     featureRequester = CachedRequest(clientId, clientSecret, songrequest)
+    return songRequester, artistRequester, featureRequester
 
-def addattributes(input):
+def addattributes(input, songRequester, artistRequester, featureRequester):
 
     id = input[31:]
     print(input)
@@ -83,16 +103,17 @@ outfile = "datafinal.csv"
 separateur = ";"
 header = True
 
+song, artist, track = setup()
+
 with open(infile, encoding='utf8') as f:
     lines = csv.reader(f, delimiter=separateur)
     with open(outfile, encoding='utf8', mode="w") as out:
-        setup()
         for line in lines:
             if header:
                 header = False
                 out.write(separateur.join(line) + "\n")
             else:
-                result = addattributes(line[len(line) - 3])
+                result = addattributes(line[len(line) - 3], song, artist, track)
                 out.write(separateur.join(line))
                 for item in result:
                     out.write(separateur + item)
@@ -100,23 +121,4 @@ with open(infile, encoding='utf8') as f:
         cleanup()
 
 
-class CachedRequest:
 
-    def __init__(self, clientID, clientSecret, ifAbsent):
-        self.store = {}
-        self.id = clientID
-        self.secret = clientSecret
-        self.func = ifAbsent
-        self.token = util.oauth2.SpotifyClientCredentials(clientId, clientSecret)
-
-        self.cache_token = self.token.get_access_token()
-        self.sp = spotipy.Spotify(self.cache_token)
-
-    def request(self, id_: str):
-        if id_ in self.store.keys():
-            return self.store[id_]
-        else:
-            return self.func(self.sp, id_)
-
-    def refresh(self):
-        self.token = util.oauth2.SpotifyClientCredentials(self.id, self.secret)
