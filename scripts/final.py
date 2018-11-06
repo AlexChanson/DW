@@ -146,7 +146,7 @@ with open(infile, encoding='utf8') as f:
                     except requests.exceptions.HTTPError as e:
                         status_code = e.response.status_code
                         if status_code == 400:
-                            err.write(line)
+                            err.write(separateur.join(line) + "\n")
                             continue
                         song.refresh()
                         artist.refresh()
@@ -154,7 +154,7 @@ with open(infile, encoding='utf8') as f:
                         try:
                             result = addattributes(line[len(line) - 3], song, artist, track)
                         except Exception:
-                            err.write(line)
+                            err.write(separateur.join(line) + "\n")
                             continue
 
                     out.write(separateur.join(line))
