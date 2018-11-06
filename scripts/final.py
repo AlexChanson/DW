@@ -5,6 +5,7 @@ import spotipy
 import spotipy.util as util
 import json
 import csv
+import requests
 
 
 class CachedRequest:
@@ -136,7 +137,11 @@ with open(infile, encoding='utf8') as f:
             else:
                 try:
                     result = addattributes(line[len(line) - 3], song, artist, track)
-                except Exception:
+                except requests.exceptions.HTTPError as e:
+                    status_code = e.response.status_code
+                    if status_code == 400:
+                        print("Error parsing line '"+line+"' ")
+                        continue
                     song.refresh()
                     artist.refresh()
                     track.refresh()
