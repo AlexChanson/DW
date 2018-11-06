@@ -23,15 +23,15 @@ class CachedRequest:
         #print(self.token)
 
     def request(self, id_: str):
-        print("ID requested",id_)
+        #print("ID requested",id_)
         if id_ in self.store.keys():
             self.cached += 1
-            print("We know it already", self.store[id_])
+            #print("We know it already", self.store[id_])
             return self.store[id_]
         else:
             self.api_hits += 1
             tmp = self.func(self.sp, id_)
-            print("Requested", tmp)
+            #print("Requested", tmp)
             self.store[id_] = tmp
             return tmp
 
@@ -65,7 +65,7 @@ def setup():
 def addattributes(input, songRequester, artistRequester, featureRequester):
 
     id = input[31:]
-    print(input)
+    #print(input)
 
 
     urn = 'spotify:track:' + id
