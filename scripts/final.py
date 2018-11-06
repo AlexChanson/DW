@@ -10,6 +10,8 @@ import csv
 class CachedRequest:
 
     def __init__(self, clientID, clientSecret, ifAbsent):
+        self.api_hits = 0
+        self.cached = 0
         self.store = {}
         self.id = clientID
         self.secret = clientSecret
@@ -23,9 +25,11 @@ class CachedRequest:
     def request(self, id_: str):
         print("ID requested",id_)
         if id_ in self.store.keys():
+            self.cached += 1
             print("We know it already", self.store[id_])
             return self.store[id_]
         else:
+            self.api_hits += 1
             tmp = self.func(self.sp, id_)
             print("Requested", tmp)
             self.store[id_] = tmp
@@ -35,6 +39,8 @@ class CachedRequest:
         self.token = util.oauth2.SpotifyClientCredentials(self.id, self.secret)
         self.sp = spotipy.Spotify(self.cache_token)
 
+    def cache_ratio(self):
+        return 1 - float(self.api_hits)/self.cached
 clientId = "6bbad2bde89e4e3a9f497882353e2307"
 clientSecret = "6858144db1174351af180a0899acc0bd"
 
@@ -101,8 +107,10 @@ def addattributes(input, songRequester, artistRequester, featureRequester):
     return [str(trackpopularity), str(followers), str(artistpopularity), artistgenre, str(releasedate), str(tempo),
             str(danceability), str(length)]
 
-def cleanup():
-    pass
+def cleanup(song, artist, track):
+    print("Cache ratio for song", song.cache_ratio())
+    print("Cache ratio for artist", artist.cache_ratio())
+    print("Cache ratio for track", track.cache_ratio())
 
 # Debut du script
 
@@ -128,7 +136,7 @@ with open(infile, encoding='utf8') as f:
                 for item in result:
                     out.write(separateur + item)
                 out.write("\n")
-        cleanup()
+        cleanup(song, artist, track)
 
 
 
