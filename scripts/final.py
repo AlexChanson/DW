@@ -71,6 +71,7 @@ def addattributes(input, songRequester, artistRequester, featureRequester):
 
 
     urn = 'spotify:track:' + id
+    print(urn)
     track = songRequester.request(urn)
     trackpopularity = track["popularity"]
 
