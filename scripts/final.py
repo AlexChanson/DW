@@ -41,6 +41,8 @@ class CachedRequest:
 
     def cache_ratio(self):
         return 1 - float(self.api_hits)/self.cached
+
+
 clientId = "6bbad2bde89e4e3a9f497882353e2307"
 clientSecret = "6858144db1174351af180a0899acc0bd"
 
@@ -116,8 +118,8 @@ def cleanup(song, artist, track):
 
 
 # Parameterage
-infile = "cleandata.csv"
-outfile = "datafinal.csv"
+infile = sys.argv[1]
+outfile = sys.argv[2]
 separateur = ";"
 header = True
 
@@ -131,7 +133,14 @@ with open(infile, encoding='utf8') as f:
                 header = False
                 out.write(separateur.join(line) + "\n")
             else:
-                result = addattributes(line[len(line) - 3], song, artist, track)
+                try:
+                    result = addattributes(line[len(line) - 3], song, artist, track)
+                except Exception:
+                    song.refresh()
+                    artist.refresh()
+                    track.refresh()
+                    result = addattributes(line[len(line) - 3], song, artist, track)
+
                 out.write(separateur.join(line))
                 for item in result:
                     out.write(separateur + item)
