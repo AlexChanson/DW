@@ -18,7 +18,7 @@ class CachedRequest:
 
         self.cache_token = self.token.get_access_token()
         self.sp = spotipy.Spotify(self.cache_token)
-        print(self.token)
+        #print(self.token)
 
     def request(self, id_: str):
         if id_ in self.store.keys():
@@ -58,6 +58,7 @@ def addattributes(input, songRequester, artistRequester, featureRequester):
 
     urn = 'spotify:track:' + id
     track = songRequester.request(urn)
+    print(track)
     trackpopularity = track["popularity"]
 
     # valuename = track['artists'][0]['id']
