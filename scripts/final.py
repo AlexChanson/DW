@@ -6,6 +6,11 @@ import spotipy.util as util
 import json
 import csv
 import requests
+import logging
+import progressbar
+
+progressbar.streams.wrap_stderr()
+logging.basicConfig()
 
 
 class CachedRequest:
@@ -84,7 +89,7 @@ def addattributes(input, songRequester, artistRequester, featureRequester):
 
 
     urn = 'spotify:track:' + id
-    print(urn)
+    #print(urn)
     track = songRequester.request(urn)
     trackpopularity = track["popularity"]
 
@@ -136,7 +141,7 @@ with open(infile, encoding='utf8') as f:
     lines = csv.reader(f, delimiter=separateur)
     with open(outfile, encoding='utf8', mode="w") as out:
         with open(errfile, mode="w") as err:
-            for line in lines:
+            for line in progressbar.progressbar(lines):
                 if header:
                     header = False
                     out.write(separateur.join(line) + "\n")
