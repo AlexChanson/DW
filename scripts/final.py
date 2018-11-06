@@ -23,7 +23,9 @@ class CachedRequest:
         if id_ in self.store.keys():
             return self.store[id_]
         else:
-            return self.func(self.sp, id_)
+            tmp = self.func(self.sp, id_)
+            self.store[id_] = tmp
+            return tmp
 
     def refresh(self):
         self.token = util.oauth2.SpotifyClientCredentials(self.id, self.secret)
