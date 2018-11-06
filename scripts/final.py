@@ -44,6 +44,18 @@ class CachedRequest:
         return 1 - float(self.api_hits)/self.cached
 
 
+if len(sys.argv) < 4:
+    print("Use final.py infile.csv outfile.csv out_errors.csv")
+    sys.exit(1)
+
+############################
+#       Parameterage       #
+############################
+infile = sys.argv[1]
+outfile = sys.argv[2]
+errfile = sys.argv[3]
+separateur = ";"
+header = True
 clientId = "6bbad2bde89e4e3a9f497882353e2307"
 clientSecret = "6858144db1174351af180a0899acc0bd"
 
@@ -118,40 +130,39 @@ def cleanup(song, artist, track):
 
 # Debut du script
 
-
-# Parameterage
-infile = sys.argv[1]
-outfile = sys.argv[2]
-separateur = ";"
-header = True
-
 song, artist, track = setup()
 
 with open(infile, encoding='utf8') as f:
     lines = csv.reader(f, delimiter=separateur)
     with open(outfile, encoding='utf8', mode="w") as out:
-        for line in lines:
-            if header:
-                header = False
-                out.write(separateur.join(line) + "\n")
-            else:
-                try:
-                    result = addattributes(line[len(line) - 3], song, artist, track)
-                except requests.exceptions.HTTPError as e:
-                    status_code = e.response.status_code
-                    if status_code == 400:
-                        print("Error parsing line '"+line+"' ")
-                        continue
-                    song.refresh()
-                    artist.refresh()
-                    track.refresh()
-                    result = addattributes(line[len(line) - 3], song, artist, track)
+        with open(errfile, mode="w") as err:
+            for line in lines:
+                if header:
+                    header = False
+                    out.write(separateur.join(line) + "\n")
+                else:
+                    try:
+                        result = addattributes(line[len(line) - 3], song, artist, track)
+                    except requests.exceptions.HTTPError as e:
+                        status_code = e.response.status_code
+                        if status_code == 400:
+                            err.write(line)
+                            continue
+                        song.refresh()
+                        artist.refresh()
+                        track.refresh()
+                        try:
+                            result = addattributes(line[len(line) - 3], song, artist, track)
+                        except Exception:
+                            err.write(line)
+                            continue
 
-                out.write(separateur.join(line))
-                for item in result:
-                    out.write(separateur + item)
-                out.write("\n")
-        cleanup(song, artist, track)
+                    out.write(separateur.join(line))
+                    for item in result:
+                        out.write(separateur + item)
+                    out.write("\n")
+
+            cleanup(song, artist, track)
 
 
 
