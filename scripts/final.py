@@ -161,7 +161,9 @@ with open(infile, encoding='utf8') as f:
                             except Exception:
                                 err.write(separateur.join(line) + "\n")
                                 continue                      
-
+                    except:
+                        err.write(separateur.join(line) + "\n")
+                        continue
                     out.write(separateur.join(line))
                     for item in result:
                         out.write(separateur + item)
