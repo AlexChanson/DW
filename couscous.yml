@@ -51,9 +51,12 @@ menu:
                 facts:
                     text: Facts
                     relativeUrl: conception/facts.html
-                #functional_dependencies:
-                  #  text: Functional Dependencies
-                  #  relativeUrl: conception/functional_dependencies.html
+        reports:
+            name: Reports
+            items:
+                loading:
+                    text: Loading
+                    relativeUrl: reports/loading.html
         about:
             name: About
             items:
