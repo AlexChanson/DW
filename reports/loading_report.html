@@ -111,9 +111,12 @@ Loading Phase
 </h2>
 <h3 id="tong-xinze---ringuet-nicolas---chanson-alexandre">Tong Xinze - Ringuet Nicolas - Chanson Alexandre</h3>
 <h2 id="introduction">Introduction</h2>
-<h2 id="architecture-overview">Architecture overview</h2>
-<p>explain choices in archietecture here</p>
+<h2 id="architecture">Architecture</h2>
+<p><img src="../figures/dw_architecture.svg" alt="dw_architecture" /></p>
+<p>We chose to shift our initial plan to use the million song dataset to using the spotify API, this approach enables us to obtain up to date information and to avoid matching ID between too systems. The informations we wanted on google searches of songs turned out to be quite expensive so we didn't include it in the warehouse (This would have been solved by asking money to our boss in a profesionnal environement).</p>
+<p>We plan to add data from twitter and other social media platforms to have additional features for the data mining process.</p>
 <h2 id="master-job">Master Job</h2>
+<p><img src="../figures/master_job.svg" alt="master_job" /></p>
 <h2 id="star-schema">Star schema</h2>
 <p><img src="../figures/ER1.svg" alt="Schema of "Chart_Entry"" /></p>
 <p>The principal fact is translated to a start schema, the one to many relationship is handled using a bridge (Table Plays), this is the abstract table schema (primary keys underlined) types are specifed in the SQL table creation script.</p>
