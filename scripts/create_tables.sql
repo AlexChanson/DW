@@ -1,6 +1,6 @@
 CREATE TABLE `chart_entry` (
 	`streams` INT UNSIGNED NOT NULL,
-	`country_id` SMALLINT UNSIGNED NOT NULL,
+	`country_id` varchar(7) NOT NULL,
 	`track_id` CHAR(22) NOT NULL,
 	`week_id` INT UNSIGNED NOT NULL,
 	`entryNb` TINYINT UNSIGNED NOT NULL DEFAULT '1',
@@ -16,7 +16,7 @@ CREATE TABLE `track` (
 	`album` VARCHAR(255) NOT NULL,
 	`title` VARCHAR(255) NOT NULL,
 	`genre` VARCHAR(127) NOT NULL,
-	`release_year` YEAR NOT NULL,
+	`release_year` DATE NOT NULL,
 	PRIMARY KEY (`track_id`)
 )
 ENGINE=InnoDB
@@ -42,7 +42,7 @@ ENGINE=InnoDB
 ;
 
 CREATE TABLE `country` (
-	`country_id` SMALLINT(5) UNSIGNED NOT NULL,
+	`country_id` varchar(7) NOT NULL,
 	`name` VARCHAR(64) NOT NULL,
 	`region` VARCHAR(64) NOT NULL,
 	PRIMARY KEY (`country_id`)
