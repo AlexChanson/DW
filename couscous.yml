@@ -9,6 +9,7 @@ include:
     - .
     - figures
     - conception
+    - reports
 
 scripts:
     after:
