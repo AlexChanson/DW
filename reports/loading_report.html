@@ -106,11 +106,20 @@
         </header>
         <div class="container">
                             <h1 style="text-align:center"> BI Project</h1>
-<h2 style="text-align:center;">Loading Phase</h2>
+<h2 style="text-align:center!important;">
+Loading Phase
+</h2>
 <h3 id="tong-xinze---ringuet-nicolas---chanson-alexandre">Tong Xinze - Ringuet Nicolas - Chanson Alexandre</h3>
 <h2 id="introduction">Introduction</h2>
 <h2 id="architecture-overview">Architecture overview</h2>
-<p><img src="../figures/dw_architecture.svg"></img></p>
+<p>explain choices in archietecture here</p>
+<h2 id="master-job">Master Job</h2>
+<h2 id="star-schema">Star schema</h2>
+<p><img src="../figures/ER1.svg" alt="Schema of "Chart_Entry"" /></p>
+<p>The principal fact is translated to a start schema, the one to many relationship is handled using a bridge (Table Plays), this is the abstract table schema (primary keys underlined) types are specifed in the SQL table creation script.</p>
+<p><a href="../scripts/create_tables.sql">Create table SQL</a></p>
+<p><img src="../figures/ER2.svg" alt="Song features fact" /></p>
+<p>The second fact that stores metrics about songs shares it's dimension with the main fact, here track_id is the fact table's primary key and a foreign key linking to Track.</p>
                     </div>
     </div>
 
