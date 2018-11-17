@@ -8,6 +8,10 @@ Loading Phase
 
 ## Introduction
 
+In this phase we loaded the data into the previously created warehouse, this represents the bulk of the work of the data warehousing project.
+
+ We opted for a mixed approach using both ETL software (talend) and custom scripts written in python to improve performances. As we query an API for information we built a simple caching engine in python to avoid hitting the rate limits.
+
 ## Architecture
 
 ![dw_architecture](../figures/dw_architecture.svg)
@@ -19,6 +23,10 @@ We plan to add data from twitter and other social media platforms to have additi
 ## Master Job
 
 ![master_job](../figures/master_job.svg)
+
+The master job is split accross the two technologies, python first and talend next handling the last phase. In simpler terms the E and T phases are done using python while talend handles the L phase.
+
+The scripts are available on [github](https://github.com/alexchanson/DW/scripts) and a description of the talend jobs thereafter.
 
 ## Star schema
 
