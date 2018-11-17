@@ -1,7 +1,7 @@
 CREATE TABLE `chart_entry` (
 	`streams` INT UNSIGNED NOT NULL,
 	`country_id` SMALLINT UNSIGNED NOT NULL,
-	`track_id` INT UNSIGNED NOT NULL,
+	`track_id` CHAR(22) NOT NULL,
 	`week_id` INT UNSIGNED NOT NULL,
 	`entryNb` TINYINT UNSIGNED NOT NULL DEFAULT '1',
 	`rank` SMALLINT UNSIGNED NOT NULL,
@@ -12,17 +12,18 @@ ENGINE=InnoDB
 ;
 
 CREATE TABLE `track` (
-	`track_id` INT(10) UNSIGNED NOT NULL,
+	`track_id` CHAR(22) NOT NULL,
 	`album` VARCHAR(255) NOT NULL,
 	`title` VARCHAR(255) NOT NULL,
 	`genre` VARCHAR(127) NOT NULL,
+	`release_year` YEAR NOT NULL,
 	PRIMARY KEY (`track_id`)
 )
 ENGINE=InnoDB
 ;
 
 CREATE TABLE `artist` (
-	`artist_id` INT(10) UNSIGNED NOT NULL,
+	`artist_id` CHAR(22) NOT NULL,
 	`name` VARCHAR(255) NOT NULL,
 	`followers` INT(10) UNSIGNED NOT NULL,
 	`genre` VARCHAR(127) NOT NULL,
@@ -33,8 +34,8 @@ ENGINE=InnoDB
 ;
 
 CREATE TABLE `plays` (
-	`artist_id` INT(10) UNSIGNED NOT NULL,
-	`track_id` INT(10) UNSIGNED NOT NULL,
+	`artist_id` CHAR(22) NOT NULL,
+	`track_id` CHAR(22) NOT NULL,
 	PRIMARY KEY (`artist_id`, `track_id`)
 )
 ENGINE=InnoDB
@@ -62,8 +63,7 @@ ENGINE=InnoDB
 ;
 
 CREATE TABLE `song_feature` (
-	`track_id` INT(10) UNSIGNED NOT NULL,
-	`release_year` YEAR NOT NULL,
+	`track_id` CHAR(22) NOT NULL,
 	`danceability` FLOAT NOT NULL,
 	`length_ms` INT(10) UNSIGNED NOT NULL,
 	`tempo` FLOAT NOT NULL,
