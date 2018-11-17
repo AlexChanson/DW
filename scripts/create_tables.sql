@@ -27,6 +27,7 @@ CREATE TABLE `artist` (
 	`name` VARCHAR(255) NOT NULL,
 	`followers` INT(10) UNSIGNED NOT NULL,
 	`genre` VARCHAR(127) NOT NULL,
+	`artist_popu` FLOAT(10) NOT NULL,
 	`country_id` SMALLINT(5) UNSIGNED NOT NULL,
 	PRIMARY KEY (`artist_id`)
 )
