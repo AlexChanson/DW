@@ -57,7 +57,7 @@ menu:
             items:
                 loading:
                     text: Loading
-                    relativeUrl: reports/loading.html
+                    relativeUrl: reports/loading_report.html
         about:
             name: About
             items:
