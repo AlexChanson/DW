@@ -30,18 +30,20 @@ with open(infile, encoding='utf8') as f:
                     header = False
                     out.write(separateur.join(line) + "\n")
                 else:
-                    if line[1] == "" or line[2] == "" or line[11] == "":
-                        line[1] = "DELETED"
-                        line[2] = "DELETED"
-                        line[3] = "DELETED"
-                    flag = False
-                    for item in line:
-                        if item == "":
-                            flag = True
-                    if flag:
-                        out.write(separateur.join(line) + "\n")
-                    else:
+                    try:
+                        if line[1] == "" or line[2] == "" or line[11] == "":
+                            line[1] = "DELETED"
+                            line[2] = "DELETED"
+                            line[3] = "DELETED"
+                        flag = False
+                        for item in line:
+                            if item == "":
+                                flag = True
+                        if flag:
+                            out.write(separateur.join(line) + "\n")
+                        else:
+                            err.write(separateur.join(line) + "\n")
+                    except IndexError:
                         err.write(separateur.join(line) + "\n")
-
 
 
