@@ -42,11 +42,17 @@ scraps data for one country and on week from charts.spotify.com
 
 merges files from all countries
 
+#### testsupp.py
+
+cleans the table (unwanted html from the scrapping process)
+
 #### addattributes.py
 
 queries the spotify api for additional data (track\_popularity, followers, artist\_ popularity, artist\_genre, album\_ name, artist\_id, release\_year, tempo, danceability, length) using cache to avoid making too much requests.
 
 #### builddb.py
+
+this script is the target of the talend command, it runs chart.py on a list of countries then all other scripts in order
 
 ### Exctract & Load Country Codes
 
