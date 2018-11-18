@@ -48,8 +48,6 @@ queries the spotify api for additional data (track\_popularity, followers, artis
 
 #### builddb.py
 
-
-
 ### Exctract & Load Country Codes
 
 ![country](../figures/country.png)
@@ -78,6 +76,6 @@ The second fact that stores metrics about songs shares it's dimension with the m
 
 The loading was a complex operation yet It would have been simpler to use only python as talend only performs Loading operation and most of the logic for API querring cannot be easly integrated in this tool. We learn that not all data is free and next time we want a specific data set such as google searches we will first check if we can obtain it and at what price point.
 
-# Anexe 1: Refreshment
+## Anexe 1: Refreshment
 
-
+As the database was created manually (using Datagrip) it is not necessary to use a separate talend job we simply run the same job with different parameters (only one week span). The country code loading is not excecuted. 
