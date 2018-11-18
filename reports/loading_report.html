@@ -139,9 +139,12 @@ Loading Phase
 <p>scraps data for one country and on week from charts.spotify.com</p>
 <h4 id="mergecsvpy">mergecsv.py</h4>
 <p>merges files from all countries</p>
+<h4 id="testsupppy">testsupp.py</h4>
+<p>cleans the table (unwanted html from the scrapping process)</p>
 <h4 id="addattributespy">addattributes.py</h4>
 <p>queries the spotify api for additional data (track_popularity, followers, artist_ popularity, artist_genre, album_ name, artist_id, release_year, tempo, danceability, length) using cache to avoid making too much requests.</p>
 <h4 id="builddbpy">builddb.py</h4>
+<p>this script is the target of the talend command, it runs chart.py on a list of countries then all other scripts in order</p>
 <h3 id="exctract-amp-load-country-codes">Exctract &amp; Load Country Codes</h3>
 <p><img src="../figures/country.png" alt="country" /></p>
 <p>The country codes come from <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">github</a> and doesnt need much processing, its IDs are simply turned to lowercase and loaded in the database.</p>
