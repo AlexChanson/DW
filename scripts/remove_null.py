@@ -24,7 +24,7 @@ header = True
 with open(infile, encoding='utf8') as f:
     lines = csv.reader(f, delimiter=separateur)
     with open(outfile, encoding='utf8', mode="w") as out:
-        with open(outfile, encoding='utf8', mode='W') as err:
+        with open(outfile, encoding='utf8', mode='w') as err:
             for line in progressbar.progressbar(lines):
                 if header:
                     header = False
