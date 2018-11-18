@@ -1896,12 +1896,23 @@ Loading Phase
 <p>The scripts are available on <a href="https://github.com/alexchanson/DW/scripts">github</a> and a description of the talend jobs thereafter.</p>
 <h3 id="python-excecutor" class="atx">Python excecutor</h3>
 <p><img src="../figures/extracttransform.png" alt="extracttransform"></p>
-<p>This is a simple job that runs all the python scripts necessary to exctract and clean the data.</p>
+<p>This is a simple job that runs all the python scripts necessary to exctract and clean the data. The scripts are in order:</p>
+<h4 id="charts-py" class="atx">charts.py</h4>
+<p>scraps data for one country and on week from charts.spotify.com</p>
+<h4 id="mergecsv-py" class="atx">mergecsv.py</h4>
+<p>merges files from all countries</p>
+<h4 id="testsupp-py" class="atx">testsupp.py</h4>
+<p>cleans the table (unwanted html from the scrapping process)</p>
+<h4 id="addattributes-py" class="atx">addattributes.py</h4>
+<p>queries the spotify api for additional data (track_popularity, followers, artist_ popularity, artist_genre, album_ name, artist_id, release_year, tempo, danceability, length) using cache to avoid making too much requests.</p>
+<h4 id="builddb-py" class="atx">builddb.py</h4>
+<p>this script is the target of the talend command, it runs chart.py on a list of countries then all other scripts in order</p>
 <h3 id="exctract-load-country-codes" class="atx">Exctract &amp; Load Country Codes</h3>
 <p><img src="../figures/country.png" alt="country"></p>
 <p>The country codes come from <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">github</a> and doesnt need much processing, its IDs are simply turned to lowercase and loaded in the database.</p>
 <h3 id="load-flat-table" class="atx">Load flat table</h3>
 <p><img src="../figures/loaddb.png" alt="loaddb"></p>
+<p>This job takes on after the python API requester has done it&#39;s job, it firsts checks lines for null values (mostly deleted songs from spotify that have id but with all other information absent). It then sends off the clean lines to mappers that handle schema mapping between the flat table and the database.</p>
 <h2 id="star-schema" class="atx">Star schema</h2>
 <p><img src="../figures/ER1.svg" alt="Schema of &quot;Chart_Entry&quot;"></p>
 <p>The principal fact is translated to a start schema, the one to many relationship is handled using a bridge (Table Plays), this is the abstract table schema (primary keys underlined) types are specifed in the SQL table creation script.</p>
@@ -1910,6 +1921,8 @@ Loading Phase
 <p>The second fact that stores metrics about songs shares it&#39;s dimension with the main fact, here track_id is the fact table&#39;s primary key and a foreign key linking to Track.</p>
 <h2 id="conclusion" class="atx">Conclusion</h2>
 <p>The loading was a complex operation yet It would have been simpler to use only python as talend only performs Loading operation and most of the logic for API querring cannot be easly integrated in this tool. We learn that not all data is free and next time we want a specific data set such as google searches we will first check if we can obtain it and at what price point.</p>
+<h2 id="anexe-1-refreshment" class="atx">Anexe 1: Refreshment</h2>
+<p>As the database was created manually (using Datagrip) it is not necessary to use a different talend job we simply cloned the load flat table jobe with a different input and different parameters (only one week span). The country code loading is not excecuted. </p>
 
   </article>
 </body>
