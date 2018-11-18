@@ -131,16 +131,13 @@ Loading Phase
 <h2 id="master-job">Master Job</h2>
 <p><img src="../figures/master_job.svg" alt="master_job" /></p>
 <p>The master job is split accross the two technologies, python first and talend next handling the last phase. In simpler terms the E and T phases are done using python while talend handles the L phase.</p>
-<p>Note on the NULL value:</p>
-<p>The null values are on artist,song and album names, bu the id are still present.  When the id is used to access the spotify.com website we obtain 404 errors or empty pages, the api also flags most of those id as invalid. We presume this is from deleted content as it was probably valid when the charts were created but removed since. Those values are therefore not left as NULL be named DELETED.</p>
-<p>This is trivial as all lines with deleted information follow the same pattern, a simple linux command is used:</p>
-<pre><code class="language-bash">cat out_?? | sed 's/;;;/;DELETED;DELETED;/' | sed 's/;;/;DELETED;/' &gt; nonull.csv</code></pre>
-<p>(sed shows ludicrous performances compared to talend, it can parse more than a million lines per second)</p>
 <p>The scripts are available on <a href="https://github.com/alexchanson/DW/scripts">github</a> and a description of the talend jobs thereafter.</p>
 <h3 id="python-excecutor">Python excecutor</h3>
 <p><img src="../figures/extracttransform.png" alt="extracttransform" /></p>
+<p>This is a simple job that runs all the python scripts necessary to exctract and clean the data.</p>
 <h3 id="exctract-amp-load-country-codes">Exctract &amp; Load Country Codes</h3>
 <p><img src="../figures/country.png" alt="country" /></p>
+<p>The country codes come from <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">github</a> and doesnt need much processing, its IDs are simply turned to lowercase and loaded in the database.</p>
 <h3 id="load-flat-table">Load flat table</h3>
 <p><img src="../figures/loaddb.png" alt="loaddb" /></p>
 <h2 id="star-schema">Star schema</h2>
