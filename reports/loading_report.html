@@ -134,12 +134,13 @@ Loading Phase
 <p>The scripts are available on <a href="https://github.com/alexchanson/DW/scripts">github</a> and a description of the talend jobs thereafter.</p>
 <h3 id="python-excecutor">Python excecutor</h3>
 <p><img src="../figures/extracttransform.png" alt="extracttransform" /></p>
-<p>This is a simple job that runs all the python scripts necessary to exctract and clean the data.</p>
+<p>This is a simple job that runs all the python scripts necessary to exctract and clean the data. The scripts are in order:</p>
 <h3 id="exctract-amp-load-country-codes">Exctract &amp; Load Country Codes</h3>
 <p><img src="../figures/country.png" alt="country" /></p>
 <p>The country codes come from <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">github</a> and doesnt need much processing, its IDs are simply turned to lowercase and loaded in the database.</p>
 <h3 id="load-flat-table">Load flat table</h3>
 <p><img src="../figures/loaddb.png" alt="loaddb" /></p>
+<p>This job takes on after the python API requester has done it's job, it firsts checks lines for null values (mostly deleted songs from spotify that have id but with all other information absent). It then sends off the clean lines to mappers that handle schema mapping between the flat table and the database.</p>
 <h2 id="star-schema">Star schema</h2>
 <p><img src="../figures/ER1.svg" alt="Schema of "Chart_Entry"" /></p>
 <p>The principal fact is translated to a start schema, the one to many relationship is handled using a bridge (Table Plays), this is the abstract table schema (primary keys underlined) types are specifed in the SQL table creation script.</p>
