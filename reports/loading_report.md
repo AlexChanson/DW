@@ -32,7 +32,7 @@ The scripts are available on [github](https://github.com/alexchanson/DW/scripts)
 
 ![extracttransform](../figures/extracttransform.png)
 
-This is a simple job that runs all the python scripts necessary to exctract and clean the data.
+This is a simple job that runs all the python scripts necessary to exctract and clean the data. The scripts are in order:
 
 ### Exctract & Load Country Codes
 
@@ -44,7 +44,7 @@ The country codes come from [github](https://github.com/lukes/ISO-3166-Countries
 
 ![loaddb](../figures/loaddb.png)
 
-
+This job takes on after the python API requester has done it's job, it firsts checks lines for null values (mostly deleted songs from spotify that have id but with all other information absent). It then sends off the clean lines to mappers that handle schema mapping between the flat table and the database.
 
 ## Star schema
 

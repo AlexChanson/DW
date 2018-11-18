@@ -1884,10 +1884,32 @@ Loading Phase
 
 <h3 id="tong-xinze-ringuet-nicolas-chanson-alexandre" class="atx">Tong Xinze - Ringuet Nicolas - Chanson Alexandre</h3>
 <h2 id="introduction" class="atx">Introduction</h2>
-<h2 id="architecture-overview" class="atx">Architecture overview</h2>
-<p>explain choices in archietecture here</p>
+<p>In this phase we loaded the data into the previously created warehouse, this represents the bulk of the work of the data warehousing project.</p>
+<p> We opted for a mixed approach using both ETL software (talend) and custom scripts written in python to improve performances. As we query an API for information we built a simple caching engine in python to avoid hitting the rate limits.</p>
+<h2 id="architecture" class="atx">Architecture</h2>
+<p><img src="../figures/dw_architecture.svg" alt="dw_architecture"></p>
+<p>We chose to shift our initial plan to use the million song dataset to using the spotify API, this approach enables us to obtain up to date information and to avoid matching ID between too systems. The informations we wanted on google searches of songs turned out to be quite expensive so we didn&#39;t include it in the warehouse (This would have been solved by asking money to our boss in a profesionnal environement).</p>
+<p>We plan to add data from twitter and other social media platforms to have additional features for the data mining process.</p>
 <h2 id="master-job" class="atx">Master Job</h2>
+<p><img src="../figures/master_job.svg" alt="master_job"></p>
+<p>The master job is split accross the two technologies, python first and talend next handling the last phase. In simpler terms the E and T phases are done using python while talend handles the L phase.</p>
+<p>The scripts are available on <a href="https://github.com/alexchanson/DW/scripts">github</a> and a description of the talend jobs thereafter.</p>
+<h3 id="python-excecutor" class="atx">Python excecutor</h3>
+<p><img src="../figures/extracttransform.png" alt="extracttransform"></p>
+<p>This is a simple job that runs all the python scripts necessary to exctract and clean the data.</p>
+<h3 id="exctract-load-country-codes" class="atx">Exctract &amp; Load Country Codes</h3>
+<p><img src="../figures/country.png" alt="country"></p>
+<p>The country codes come from <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">github</a> and doesnt need much processing, its IDs are simply turned to lowercase and loaded in the database.</p>
+<h3 id="load-flat-table" class="atx">Load flat table</h3>
+<p><img src="../figures/loaddb.png" alt="loaddb"></p>
 <h2 id="star-schema" class="atx">Star schema</h2>
+<p><img src="../figures/ER1.svg" alt="Schema of &quot;Chart_Entry&quot;"></p>
+<p>The principal fact is translated to a start schema, the one to many relationship is handled using a bridge (Table Plays), this is the abstract table schema (primary keys underlined) types are specifed in the SQL table creation script.</p>
+<p><a href="../scripts/create_tables.sql">Create table SQL</a></p>
+<p><img src="../figures/ER2.svg" alt="Song features fact"></p>
+<p>The second fact that stores metrics about songs shares it&#39;s dimension with the main fact, here track_id is the fact table&#39;s primary key and a foreign key linking to Track.</p>
+<h2 id="conclusion" class="atx">Conclusion</h2>
+<p>The loading was a complex operation yet It would have been simpler to use only python as talend only performs Loading operation and most of the logic for API querring cannot be easly integrated in this tool. We learn that not all data is free and next time we want a specific data set such as google searches we will first check if we can obtain it and at what price point.</p>
 
   </article>
 </body>
