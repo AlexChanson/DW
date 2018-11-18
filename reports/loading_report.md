@@ -26,6 +26,16 @@ We plan to add data from twitter and other social media platforms to have additi
 
 The master job is split accross the two technologies, python first and talend next handling the last phase. In simpler terms the E and T phases are done using python while talend handles the L phase.
 
+Note on the NULL value:
+
+The null values are on artist,song and album names, bu the id are still present.  When the id is used to access the spotify.com website we obtain 404 errors or empty pages, the api also flags most of those id as invalid. We presume this is from deleted content as it was probably valid when the charts were created but removed since. Those values are therefore not left as NULL be named DELETED.
+
+This is trivial as all lines with deleted information follow the same pattern, a simple linux command is used:
+
+```bash
+cat out_?? | sed 's/;;;/;DELETED;DELETED;/' | sed 's/;;/;DELETED;/' > nonull.csv
+```
+
 The scripts are available on [github](https://github.com/alexchanson/DW/scripts) and a description of the talend jobs thereafter.
 
 ## Star schema
