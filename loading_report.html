@@ -135,6 +135,13 @@ Loading Phase
 <h3 id="python-excecutor">Python excecutor</h3>
 <p><img src="../figures/extracttransform.png" alt="extracttransform" /></p>
 <p>This is a simple job that runs all the python scripts necessary to exctract and clean the data. The scripts are in order:</p>
+<h4 id="chartspy">charts.py</h4>
+<p>scraps data for one country and on week from charts.spotify.com</p>
+<h4 id="mergecsvpy">mergecsv.py</h4>
+<p>merges files from all countries</p>
+<h4 id="addattributespy">addattributes.py</h4>
+<p>queries the spotify api for additional data (track_popularity, followers, artist_ popularity, artist_genre, album_ name, artist_id, release_year, tempo, danceability, length) using cache to avoid making too much requests.</p>
+<h4 id="builddbpy">builddb.py</h4>
 <h3 id="exctract-amp-load-country-codes">Exctract &amp; Load Country Codes</h3>
 <p><img src="../figures/country.png" alt="country" /></p>
 <p>The country codes come from <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">github</a> and doesnt need much processing, its IDs are simply turned to lowercase and loaded in the database.</p>
@@ -149,6 +156,7 @@ Loading Phase
 <p>The second fact that stores metrics about songs shares it's dimension with the main fact, here track_id is the fact table's primary key and a foreign key linking to Track.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The loading was a complex operation yet It would have been simpler to use only python as talend only performs Loading operation and most of the logic for API querring cannot be easly integrated in this tool. We learn that not all data is free and next time we want a specific data set such as google searches we will first check if we can obtain it and at what price point.</p>
+<h1 id="anexe-1-refreshment">Anexe 1: Refreshment</h1>
                     </div>
     </div>
 
