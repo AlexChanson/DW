@@ -40,6 +40,20 @@ cat out_?? | sed 's/;;;/;DELETED;DELETED;/' | sed 's/;;/;DELETED;/' > nonull.csv
 
 The scripts are available on [github](https://github.com/alexchanson/DW/scripts) and a description of the talend jobs thereafter.
 
+### Python excecutor
+
+![extracttransform](../figures/extracttransform.png)
+
+### Exctract & Load Country Codes
+
+![country](../figures/country.png)
+
+### Load flat table
+
+![loaddb](../figures/loaddb.png)
+
+
+
 ## Star schema
 
 ![Schema of "Chart_Entry"](../figures/ER1.svg)
@@ -52,8 +66,6 @@ The principal fact is translated to a start schema, the one to many relationship
 
 The second fact that stores metrics about songs shares it's dimension with the main fact, here track_id is the fact table's primary key and a foreign key linking to Track.
 
-##Conclusion
+## Conclusion
 
 The loading was a complex operation yet It would have been simpler to use only python as talend only performs Loading operation and most of the logic for API querring cannot be easly integrated in this tool. We learn that not all data is free and next time we want a specific data set such as google searches we will first check if we can obtain it and at what price point.
-
-
