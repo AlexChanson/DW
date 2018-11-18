@@ -34,6 +34,22 @@ The scripts are available on [github](https://github.com/alexchanson/DW/scripts)
 
 This is a simple job that runs all the python scripts necessary to exctract and clean the data. The scripts are in order:
 
+#### charts.py
+
+scraps data for one country and on week from charts.spotify.com
+
+#### mergecsv.py
+
+merges files from all countries
+
+#### addattributes.py
+
+queries the spotify api for additional data (track\_popularity, followers, artist\_ popularity, artist\_genre, album\_ name, artist\_id, release\_year, tempo, danceability, length) using cache to avoid making too much requests.
+
+#### builddb.py
+
+
+
 ### Exctract & Load Country Codes
 
 ![country](../figures/country.png)
@@ -61,3 +77,7 @@ The second fact that stores metrics about songs shares it's dimension with the m
 ## Conclusion
 
 The loading was a complex operation yet It would have been simpler to use only python as talend only performs Loading operation and most of the logic for API querring cannot be easly integrated in this tool. We learn that not all data is free and next time we want a specific data set such as google searches we will first check if we can obtain it and at what price point.
+
+# Anexe 1: Refreshment
+
+
