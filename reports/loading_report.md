@@ -84,4 +84,4 @@ The loading was a complex operation yet It would have been simpler to use only p
 
 ## Anexe 1: Refreshment
 
-As the database was created manually (using Datagrip) it is not necessary to use a separate talend job we simply run the same job with different parameters (only one week span). The country code loading is not excecuted. 
+As the database was created manually (using Datagrip) it is not necessary to use a different talend job we simply cloned the load flat table jobe with a different input and different parameters (only one week span). The country code loading is not excecuted. 
