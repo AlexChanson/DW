@@ -16,7 +16,6 @@ if len(sys.argv) < 4:
 ############################
 infile = sys.argv[1]
 outfile = sys.argv[2]
-errfile = sys.argv[3]
 separateur = ";"
 header = True
 
@@ -24,16 +23,19 @@ header = True
 with open(infile, encoding='utf8') as f:
     lines = csv.reader(f, delimiter=separateur)
     with open(outfile, encoding='utf8', mode="w") as out:
-        with open(errfile, mode="w") as err:
-            for line in progressbar.progressbar(lines):
-                if header:
-                    header = False
+
+        for line in progressbar.progressbar(lines):
+            if header:
+                header = False
+                out.write(separateur.join(line) + "\n")
+            else:
+                if line[1] == "" or line[2] == "" or line[11] == "":
+                    line[1] = "DELETED"
+                    line[2] = "DELETED"
+                    line[3] = "DELETED"
                     out.write(separateur.join(line) + "\n")
                 else:
-                    if line[1] == "" or line[2] == "" or line[11] == "":
-                        err.write(separateur.join(line) + "\n")
-                    else:
-                        out.write(separateur.join(line) + "\n")
+                    out.write(separateur.join(line) + "\n")
 
 
 
