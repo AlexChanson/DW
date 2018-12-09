@@ -62,7 +62,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 ```
 #### Q8
 ```
-    In terms of streams: TWEETS[artist, genre='rap', year=2018, country='Italy'].sup(streams)
+    In terms of streams: TWEETS[artist, genre='rap', year=2018, country='Italy'].sum(streams)
 ```
 #### Q9
 ```
