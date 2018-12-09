@@ -341,18 +341,15 @@ Those needs will guide our DW design process, we will use the needs driven appro
 <h4 id="q3">Q3</h4>
 <pre><code>    TWEETS[artist, rank=1, year=2017]].sum(hits)</code></pre>
 <h4 id="q4">Q4</h4>
-<pre><code>    CHART_ENTRY[artist='kanye', country='france'].count(nbEntry)
-    CHART_ENTRY[artist='kanye', country='china'].count(nbEntry)</code></pre>
+<pre><code>    CHART_ENTRY[artist='kanye', country='france' OR country = 'china'].count(nbEntry)</code></pre>
 <h4 id="q5">Q5</h4>
 <pre><code>    CHART_ENTRY[artist, month='July', rank&lt;51].max(streams)</code></pre>
 <h4 id="q6">Q6</h4>
-<pre><code>    This query has vocation to be answer by our coumpound popularity metric.
-    In terms of searches: TWEETS[genre, year&gt;2012].max(hits)</code></pre>
+<pre><code>    In terms of streams: CHART_ENTRY[genre, year&gt;2012].sum(streams)</code></pre>
 <h4 id="q7">Q7</h4>
 <pre><code>    CHART_ENTRY[rank&lt;51].avg(streams)</code></pre>
 <h4 id="q8">Q8</h4>
-<pre><code>    This query has vocation to be answer by our coumpound popularity metric.
-    In terms of searches: TWEETS[genre='rap', year=2018, country='Italy'].max(hits)</code></pre>
+<pre><code>    In terms of streams: TWEETS[artist, genre='rap', year=2018, country='Italy'].sup(streams)</code></pre>
 <h4 id="q9">Q9</h4>
 <pre><code>    TWEETS[track='Highway To Hell', country='Germany', year=2017].sum(hits)</code></pre>
 <h4 id="q10">Q10</h4>
