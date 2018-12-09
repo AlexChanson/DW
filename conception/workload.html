@@ -138,7 +138,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 </tr>
 <tr>
 <td>Q3</td>
-<td>How many times the number one artist of the top 50 of the year 2017 has been searched on google ?</td>
+<td>How many times the number one artist of the top 50 of the year 2017 has been tweeted ?</td>
 </tr>
 <tr>
 <td>Q4</td>
@@ -162,11 +162,11 @@ Those needs will guide our DW design process, we will use the needs driven appro
 </tr>
 <tr>
 <td>Q9</td>
-<td>How many google searches for &quot;Highway To Hell&quot; in 2017 in Germany ?</td>
+<td>How many tweets for &quot;Highway To Hell&quot; in 2017 in Germany ?</td>
 </tr>
 <tr>
 <td>Q10</td>
-<td>How many google searches for the last Taylor Swift album in 2015 in Asia ?</td>
+<td>How many tweets for the last Taylor Swift album in 2015 in Asia ?</td>
 </tr>
 </tbody>
 </table>
@@ -339,7 +339,7 @@ Those needs will guide our DW design process, we will use the needs driven appro
 <h4 id="q2">Q2</h4>
 <pre><code>    CHART_ENTRY[artist, genre='pop', country='USA', year=2018].count(nbEntry where rank &lt; 6)</code></pre>
 <h4 id="q3">Q3</h4>
-<pre><code>    GOOGLE_SEARCHES[artist, rank=1, year=2017]].sum(hits)</code></pre>
+<pre><code>    TWEETS[artist, rank=1, year=2017]].sum(hits)</code></pre>
 <h4 id="q4">Q4</h4>
 <pre><code>    CHART_ENTRY[artist='kanye', country='france'].count(nbEntry)
     CHART_ENTRY[artist='kanye', country='china'].count(nbEntry)</code></pre>
@@ -347,16 +347,16 @@ Those needs will guide our DW design process, we will use the needs driven appro
 <pre><code>    CHART_ENTRY[artist, month='July', rank&lt;51].max(streams)</code></pre>
 <h4 id="q6">Q6</h4>
 <pre><code>    This query has vocation to be answer by our coumpound popularity metric.
-    In terms of searches: GOOGLE_SEARCHES[genre, year&gt;2012].max(hits)</code></pre>
+    In terms of searches: TWEETS[genre, year&gt;2012].max(hits)</code></pre>
 <h4 id="q7">Q7</h4>
 <pre><code>    CHART_ENTRY[rank&lt;51].avg(streams)</code></pre>
 <h4 id="q8">Q8</h4>
 <pre><code>    This query has vocation to be answer by our coumpound popularity metric.
-    In terms of searches: GOOGLE_SEARCHES[genre='rap', year=2018, country='Italy'].max(hits)</code></pre>
+    In terms of searches: TWEETS[genre='rap', year=2018, country='Italy'].max(hits)</code></pre>
 <h4 id="q9">Q9</h4>
-<pre><code>    GOOGLE_SEARCHES[track='Highway To Hell', country='Germany', year=2017].sum(hits)</code></pre>
+<pre><code>    TWEETS[track='Highway To Hell', country='Germany', year=2017].sum(hits)</code></pre>
 <h4 id="q10">Q10</h4>
-<pre><code>    GOOGLE_SERACHES[album='Reputation',region='Asia', year=2015].sum(hits)</code></pre>
+<pre><code>    TWEETS[album='Reputation',region='Asia', year=2015].sum(hits)</code></pre>
                     </div>
     </div>
 
