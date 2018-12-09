@@ -7,20 +7,16 @@
 | month        | time aggreagation, we will use the 544 cycle                                                          | no  | yes | no  |
 | years        | time aggreagation                                                                                     | no  | yes | no  |
 | decade       | time agregation, classifing music by decade is very common                                            | no  | yes | no  |
-| genre        | The genre of the music (eg Pop, rock, classic death metal ...)                                        | no  | yes | no  |
+| genre        | The genre of the artist (eg pop, rock, classic, death metal ...)                                      | no  | yes | no  |
 | rank         | The rank of the music in a chart (from 1 to 200)                                                      | yes | no  | no  |
-| streams      | how many time the music was listened to                                                               | yes | no  | no  |
-| years        | year of publication of the song                                                                       | no  | yes | no  |
+| streams      | how many time the music was listened to on spotify                                                    | yes | no  | no  |
 | loudness     | general volume of the song                                                                            | yes | no  | no  |
 | dancability  | how dancable is the song (from 0 to 1)                                                                | yes | no  | no  |
-| length       | length of song                                                                                        | yes | no  | no  |
-| hits         | number of google searches for a specific song                                                         | yes | no  | no  |
+| length       | length of song in ms                                                                                  | yes | no  | no  |
 | country      | agregation by country, ie the country where the chart entry holds true                                | no  | yes | no  |
 | region       | agregate by subcontinent (ex north america)                                                           | no  | yes | no  |
 | track        | agregate by specific song                                                                             | no  | yes | no  |
 | entryNb      | used to count chart entries, always 1 for primary events                                              | yes | no  | no  |
 | popularity   | Measures the popularity of a song, will be computed and added in second semester                      | yes | no  | no  |
-| country      | The artist's country of residence                                                                     | no  | yes | no  |
-| release_year | The year the album/song was released                                                                  | no  | yes | no  |
-| label        | The label that produced the album                                                                     | no  | yes | no  |
+| release_year | The year the song was released                                                                        | no  | yes | no  |
 | followers    | The follower count by slices (0 to 10K, 10K to 100K, 100K to 1M, 1M to 2M, 2M to 3M, 3M to 5M, > 5M)  | no  | yes | no  |
