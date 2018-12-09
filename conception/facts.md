@@ -10,11 +10,11 @@ This schema represent the popularity of a song on spotify with the rank by the n
 
 ####Aggregation matrix:
 
-|         | track | country | week  | genre |
-|---------|-------|---------|-------|-------|
-| rank    | max   | avg     | avg   | max   |
-| streams | sum   | sum     | sum   | sum   |
-| nbEntry | count | count   | count | count |
+|         | track | country | week  |
+|---------|-------|---------|-------|
+| rank    | max   | avg     | avg   |
+| streams | sum   | sum     | sum   |
+| nbEntry | count | count   | count |
 
 **Warning:** We allow n-n relations between tracks and artists this can lead to inconsistencies in some sum agregates.
 
@@ -26,20 +26,9 @@ This fact represent song informations like the song length or the  loudness by g
 
 ####Aggregation matrix:
 
-|              | track | release_year |
-|--------------|-------|--------------|
-| loundness    | avg   | avg          |
-| danceability | avg   | avg          |
-| length       | avg   | avg          |
+|              | track |
+|--------------|-------|
+| loundness    | avg   |
+| danceability | avg   |
+| length       | avg   |
 
-###Google Searches
-
-![Google Searches fact](../figures/DF3.svg)
-
- This fact represent the number searches on Google for a song. We chose to keep this fact separate as it is from a different source and it migh be considered without the Chart entries when making queries.
-
-####Aggregation matrix:
-
-|      | track | country | week |
-|------|-------|---------|------|
-| hits | sum   | sum     | sum  |
